@@ -9,4 +9,13 @@ const matches = fs
     return row.split(',');
   });
 
-console.log(matches);
+let manUnitedWin = 0;
+
+for (let match of matches) {
+  if (match[1] === 'Man United' && match[5] === 'H') {
+    manUnitedWin++;
+  } else if (match[2] === 'Man United' && match[5] === 'A') {
+    manUnitedWin++;
+  }
+}
+console.log(`man united won ${manUnitedWin} times`);
