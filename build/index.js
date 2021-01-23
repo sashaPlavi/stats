@@ -13,12 +13,19 @@ var matches = fs_1.default
     return row.split(',');
 });
 var manUnitedWin = 0;
+// enum
+var MatchResult;
+(function (MatchResult) {
+    MatchResult["HomeWin"] = "H";
+    MatchResult["AwayWin"] = "A";
+    MatchResult["Drow"] = "D";
+})(MatchResult || (MatchResult = {}));
 for (var _i = 0, matches_1 = matches; _i < matches_1.length; _i++) {
     var match = matches_1[_i];
-    if (match[1] === 'Man United' && match[5] === 'H') {
+    if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
         manUnitedWin++;
     }
-    else if (match[2] === 'Man United' && match[5] === 'A') {
+    else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
         manUnitedWin++;
     }
 }
