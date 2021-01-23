@@ -4,7 +4,7 @@ import { MatchResult } from './MatchResults';
 const reader = new CsvFileReader('football.csv');
 reader.read();
 //console.log(reader.data);
-
+const date = reader.data[0][0];
 let manUnitedWin = 0;
 
 for (let match of reader.data) {
