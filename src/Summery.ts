@@ -1,6 +1,6 @@
 import { MatchData } from './MatchData';
 
-export interface Analizer {
+export interface Analyzer {
   run(matches: MatchData[]): string;
 }
 
@@ -9,5 +9,10 @@ export interface OutputTarget {
 }
 
 export class Summery {
-  constructor(public analizer: Analizer, public outputTarget: OutputTarget) {}
+  constructor(public analyzer: Analyzer, public outputTarget: OutputTarget) {}
+
+  buildAndPrintReport(matches: MatchData[]): void {
+    const report = this.analyzer.run(matches);
+    this.outputTarget.print(report);
+  }
 }
