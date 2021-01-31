@@ -3,12 +3,11 @@ import { CsvFileReader } from './CsvFileReader';
 import { Summery } from './Summery';
 import { WinAnalysis } from './analyzers/WinAnalysis';
 import { ConsoleReport } from './reportTargets/ConsoleReport';
+import { HtmlReport } from './reportTargets/HtmlReport';
 
-const csvFileReader = new CsvFileReader('football.csv');
-
-const matchReader = new MatchReader(csvFileReader);
+const matchReader = MatchReader.fromCsv('football.csv');
 matchReader.load();
 
-const summery = new Summery(new WinAnalysis('Man United'), new ConsoleReport());
+const summery = Summery.winAnalasisWithHtmlReport('Liverpool');
 
 summery.buildAndPrintReport(matchReader.matches);
